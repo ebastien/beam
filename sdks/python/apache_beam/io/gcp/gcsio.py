@@ -528,6 +528,13 @@ class GcsUploader(Uploader):
         chunksize=WRITE_CHUNK_SIZE)
     self._upload.strategy = transfer.RESUMABLE_UPLOAD
 
+    # Workaround for threading bug in datetime
+    # https://mail.python.org/pipermail/python-list/2015-October/697689.html
+    # https://stackoverflow.com/questions/32245560/module-object-has-no-attribute-strptime-with-several-threads-python
+    import datetime
+    # pylint: disable=expression-not-assigned
+    datetime.datetime.strptime
+
     # Start uploading thread.
     self._upload_thread = threading.Thread(target=self._start_upload)
     self._upload_thread.daemon = True
