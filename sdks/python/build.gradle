@@ -244,7 +244,7 @@ task portableWordCount(dependsOn: 'installGcpTest') {
     // TODO: Figure out GCS credentials and use real GCS input and output.
     def options = [
             "--input=/etc/profile",
-            "--output=/tmp/py-wordcount-direct",
+            "--output=gs://os_ebastien_name/beam/output",
             "--runner=PortableRunner",
     ]
     if (project.hasProperty("streaming"))
