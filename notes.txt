@@ -1,0 +1,35 @@
+
+
+[grpc-default-executor-7] ERROR gcsio._start_upload - Error in _start_upload while inserting file gs://os_ebastien_name/beam/beam-temp-output-cced288ac98e11e8ab0bf894c202103e/4c9abe46-96db-40d4-b976-44250ef7e583.output: Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/apache_beam/io/gcp/gcsio.py", line 549, in _start_upload
+    self._client.objects.Insert(self._insert_request, upload=self._upload)
+  File "/usr/local/lib/python2.7/site-packages/apache_beam/io/gcp/internal/clients/storage/storage_v1_client.py", line 975, in Insert
+    download=download)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/base_api.py", line 722, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/base_api.py", line 728, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/base_api.py", line 611, in __ProcessHttpResponse
+    response_type, http_response.content)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/base_api.py", line 442, in DeserializeMessage
+    message = encoding.JsonToMessage(response_type, data)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/encoding.py", line 104, in JsonToMessage
+    return _ProtoJsonApiTools.Get().decode_message(message_type, message)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/encoding.py", line 290, in decode_message
+    message_type, result)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/protorpclite/protojson.py", line 211, in decode_message
+    message = self.__decode_dictionary(message_type, dictionary)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/protorpclite/protojson.py", line 290, in __decode_dictionary
+    setattr(message, field.name, self.decode_field(field, value))
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/encoding.py", line 306, in decode_field
+    result = decoder(field, value)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/py/extra_types.py", line 261, in _DecodeDateTimeField
+    message_types.DateTimeField(1), value)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/protorpclite/protojson.py", line 319, in decode_field
+    return util.decode_datetime(value)
+  File "/usr/local/lib/python2.7/site-packages/apitools/base/protorpclite/util.py", line 267, in decode_datetime
+    decoded_datetime = datetime.datetime.strptime(time_string, format_string)
+AttributeError: 'module' object has no attribute '_strptime'
+
+
+
