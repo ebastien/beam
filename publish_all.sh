@@ -1,4 +1,6 @@
-./gradlew \
+export JAVA_OPTS="-Xmx8g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8"
+
+./gradlew --no-daemon --no-parallel --stacktrace \
   :beam-examples-java:publish \
   :beam-model-fn-execution:publish \
   :beam-model-job-management:publish \
